@@ -1,0 +1,6 @@
+Node *insertAtBegining(Node *head, int x) {
+       // Your code here
+       Node *temp2 = new Node(x);
+       temp2 ->next = head;
+       return temp2;
+    }
