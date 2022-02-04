@@ -1,0 +1,52 @@
+2. Length of Circular Linked List 
+
+.....................................
+
+
+Given a circular linked list of size n, you need to find the length of the list (total number of nodes). The tail of the linked list is connected to head.
+
+Example 1:
+
+Input:
+LinkedList: 1->2->3->4->5
+(the first and the last node is connected,
+i.e 5 --> 1)
+Output: 5
+Example 2:
+
+Input:
+LinkedList: 2->5->7->8->99->100
+(the first and the last node is connected,
+i.e 100 --> 2)
+Output: 6
+Your Task:
+The task is to complete the function getLength() which takes head reference as argument and returns the total number of nodes in the list. The printing is done by the driver code.
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 <= number of nodes <= 1000
+
+...............................................
+
+int getLength(Node * head)
+{
+    //Your code here
+    int count = 0;
+    if(head->next == head)
+    {
+        return 1;
+    }
+    Node *temp = head;
+    do{
+        count++;
+        temp = temp->next;
+    }while(temp!=head);
+    return count;
+    
+}
+
+
+.................................
+
