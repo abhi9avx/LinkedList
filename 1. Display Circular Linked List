@@ -1,0 +1,41 @@
+1. Display Circular Linked List
+
+.....................................
+Given a circular linked list of size n, you need to display the linked list. The tail of the linked list is connected to head.
+
+Example 1:
+
+Input:
+LinkedList: 1->2->3->4
+(the last and the first node are connected,
+i.e. 4 -> 1)
+Output: 1 2 3 4
+Example 2:
+
+Input:
+LinkedList: 1->2
+(the last and the first node are connected,
+i.e. 2 -> 1)
+Output: 1 2
+Your Task:
+The task is to complete the function displayList() which takes head reference as argument and returns the circular linked list as a list.
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(N).
+
+
+...............................
+
+
+
+
+if(!head) return {};
+   Node *t = head;
+   vector<int> res;
+   do{
+       res.push_back(t->data);
+       t = t->next;
+   }while(t!=head);
+   return res;
+   
+   
