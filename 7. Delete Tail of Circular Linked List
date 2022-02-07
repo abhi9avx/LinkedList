@@ -1,0 +1,54 @@
+7. Delete Tail of Circular Linked List 
+
+............................
+
+Given a circular linked list of size n, you have to delete the tail (last element) in the linked list.
+In a circular linked list, the tail is connect to the head using the next pointer.
+
+Example 1:
+
+Input:
+LinkedList: 1->2
+(the first and last node are connected,
+i.e. 2 --> 1)
+Output: 1
+Example 2:
+
+Input:
+LinkedList: 2->5->7->8->99->100
+(the first and last node are connected,
+i.e. 100 --> 2)
+Output: 2 5 7 8 99
+Your Task:
+The task is to complete the function deleteTail() which takes head reference  and returns reference to the head node, which is then used to display the list. The printing is done automatically by the driver code.
+
+Expected Time Complexity: O(n).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+2 <= number of nodes <= 103
+
+................................
+
+Node * deleteTail(Node * head)
+{
+    //Your code here
+     if(head == NULL)
+    return NULL;
+    if(head->next == head)
+    {
+        delete head;
+        return NULL;
+    }
+    Node *curr = head;
+    while(curr->next->next != head)
+    {
+        curr = curr->next;
+    }
+    Node *temp = curr->next;
+    curr->next = head;
+    delete temp;
+    return head;
+}
+
+.............................................
