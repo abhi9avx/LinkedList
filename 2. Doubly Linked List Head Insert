@@ -1,0 +1,47 @@
+2. Doubly Linked List Head Insert 
+
+
+............................
+
+Given a doubly linked list of size n, you need to insert an element data before the head and make it the new head.
+
+Example 1:
+
+Input:
+LinkedList: 1<->2<->3<->4<->5
+data = 8
+Output:
+8 1 2 3 4 5
+5 4 3 2 1 8
+Example 2:
+
+Input:
+LinkedList: 2<->4<->6<->7<->5<->1<->10
+data = 89
+Output:
+89 2 4 6 7 5 1 10
+10 1 5 7 6 4 2 89
+Your Task:
+The task is to complete the function insertInHead() which takes head reference and data as arguments and returns the head of the updated list. (The driver's code print the updated linked list twice, once forward and once backward)
+
+Expected Time Complexity: O(1).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 <= number of nodes <= 1000
+
+.............................
+
+Node *insertInHead(Node * head, int data)
+{
+    //Your code here
+    Node * temp = new Node(data);
+    temp->next = head;
+    temp->prev = NULL;
+    head->prev = temp;
+    head = temp;
+    return head;
+}
+
+...........................
+
