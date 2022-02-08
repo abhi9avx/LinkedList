@@ -1,0 +1,49 @@
+3. Doubly Linked List Tail Insert
+
+.............................
+
+Given a doubly linked list of size n, you need to insert an element data after the tail.
+
+Example 1:
+
+Input:
+LinkedList: 1<->2<->3<->4<->5
+data = 8
+Output:
+1 2 3 4 5 8
+8 5 4 3 2 1
+Example 2:
+
+Input:
+LinkedList: 2<->4<->6<->7<->5<->1<->10
+data = 89
+Output:
+2 4 6 7 5 1 10 89
+89 10 1 5 7 6 4 2
+Your Task:
+The task is to complete the function insertInTail() which takes head reference and data as arguments and returns the head of the updated list. (The driver's code print the updated linked list twice, once forward and once backward)
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 ≤ number of nodes ≤ 1000
+
+...........................
+
+Node *insertInTail(Node * head, int data)
+{
+   //Your code here
+   Node *temp = new Node(data);
+   if(head == NULL)
+   return temp;
+   Node *curr = head;
+   while(curr->next != NULL)
+        curr = curr->next;
+   curr->next = temp;
+   temp->prev = curr;
+   return head;
+}
+
+...............................
+
