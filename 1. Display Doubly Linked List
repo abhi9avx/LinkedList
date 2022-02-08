@@ -1,0 +1,39 @@
+1. Display Doubly Linked List 
+
+........................
+
+Given a doubly linked list of n elements. The task is to display the linked list.
+
+Example 1:
+
+Input:
+LinkedList: 1<->2<->3<->4<->5
+Output:
+1 2 3 4 5
+5 4 3 2 1
+Your Task:
+Your task is to complete the given function displayList(), which takes head reference as argument and returns the doubly linked list as an array ( vector in cpp, ArrayList in java, list in python)
+The driver's code print the list forward and backward.
+
+Expected Time Complexity: O(n).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 <= number of nodes <= 103
+0 <= value of nodes <= 103
+.......................
+
+vector<int> displayList(Node *head)
+{
+    vector<int> v;
+    Node *curr = head;
+    while(curr->next != NULL)
+    {
+        v.push_back(curr->data);
+        curr = curr->next;
+    }
+    v.push_back(curr->data);
+    return v;
+    
+    
+}
