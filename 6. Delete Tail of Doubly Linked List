@@ -1,0 +1,45 @@
+6. Delete Tail of Doubly Linked List 
+...................
+
+Given a doubly linked list of size n, you have to delete the tail (last element) in the linked list.
+
+Example 1:
+
+Input:
+LinkedList: 1<-->2
+Output:
+1
+1
+Example 2:
+
+Input:
+LinkedList: 2<-->5<-->7<-->8<-->99<-->100
+Output:
+2 5 7 8 99
+99 8 7 5 2
+Your Task:
+
+The task is to complete the function deleteTail() which takes head reference and returns reference to the head node of the modifies list, which is then used to display the list. (The driver's code print the modified list twice, once forward and once backward)
+
+Expected Time Complexity: O(n).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+2 <= number of nodes <= 103
+
+..........................
+
+Node *deleteTail(Node * head)
+{
+   //Your code here
+   Node *curr = head;
+   if(head == NULL || head->next == NULL)
+   return NULL;
+   while(curr->next != NULL)
+   {
+       curr = curr->next;
+   }
+   curr->prev->next = NULL;
+   delete curr;
+   return head;   
+}
