@@ -1,0 +1,70 @@
+12. Compare Circular Doubly Linked Lists 
+
+.......................
+
+Given two circular doubly linked lists of sizes n1 and n2 respectively, the task is check if the corresponding elements of the lists are same or not.
+The tail of a circular doubly linked list is connected to head via its next pointer, and the previous pointer of head is connected to the tail.
+
+Example 1:
+
+Input:
+LinkedList1: 1
+LinkedList2: 1
+Output: 1
+Example 2:
+
+Input:
+LinkedList1: 2<->5<->7<->8<->99<->100
+LinkedList2: 7<->8<->9<->73<->2
+Output: 0
+Your Task:
+The task is to complete the function compareCLL() which takes head1 and head2 references as an arguments. The function should return true if all the corresponding elements of the lists are same, else it should return false. (The driver's code print 1 if the returned value is true, otherwise false.)
+
+Expected Time Complexity: O(n1 + n2).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 <= number of nodes <= 105
+
+,..................................
+
+class Solution{
+    public:
+    bool compareCLL(Node* head1, Node* head2) {
+        Node * l1 = head1;
+       Node * l2 = head2;
+       int count1 = 0, count2 = 0;
+       
+       do
+       {
+           count1++;
+           l1 = l1 -> next;
+       } while(l1 != head1);
+       
+       do
+       {
+           count2++;
+           l2 = l2 -> next;
+       } while(l2 != head2);
+       
+       l1 = head1, l2 = head2;
+       do
+       {
+           if(l1 -> data != l2 -> data)
+               return false;
+           l1 = l1 -> next;  
+           l2 = l2 -> next;
+       } while(l1 != head1 && l2 != head2);
+       
+       if(count1 == count2)
+           return true;
+       else
+           return false;
+       
+    // Your code here
+    
+    }
+};
+
+
+...............................................
