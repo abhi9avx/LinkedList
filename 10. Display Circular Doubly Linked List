@@ -1,0 +1,51 @@
+10. Display Circular Doubly Linked List 
+
+...............................
+
+Given a circular doubly linked list consisting of N nodes, the task is to print the elements from head to tail, then from tail to head in two separate lines.
+The tail of a circular doubly linked list is connected to head via its next pointer, and the previous pointer of head is connected to the tail.
+
+Example 1:
+
+Input:
+LinkedList: 1<->2
+(the last and first node are connected,
+i.e. 2<->1)
+Output:
+1 2
+2 1
+Example 2:
+
+Input:
+LinkedList: 2<->5<->7<->8<->99<->100
+Output:
+2 5 7 8 99 100
+100 99 8 7 5 2
+Your Task:
+The task is to complete the function displayList() which takes head reference as an argument and return  the the circular doubly linked list as a list. 
+Note: The returned list is printed twice, once forward and once backward.
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(N).
+
+Constraints:
+1 <= N<= 103
+
+.................................
+*/
+vector<int> displayList(Node *head)
+{
+    vector<int> vec;
+   Node* curr = head;
+   while(curr->next != head) {
+       vec.push_back(curr->data);
+       curr = curr->next;
+   }
+   vec.push_back(curr->data);
+   return vec;
+}
+
+
+.............................................
+
+
